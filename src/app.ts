@@ -54,6 +54,9 @@ export class App {
         this.chatOptions.timestamps = this.timestamps;
         this.chatOptions.fontSize = this.fontSize;
 
+        let clean = new RegExp('^(https?://)?(www\.)?twitch\.tv/', 'g');
+        this.channel = this.channel.replace(clean, "");
+
         if (this.chatOptionsOk()) {
             this.error = false;
             this.saveSettings();
