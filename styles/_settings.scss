@@ -1,0 +1,70 @@
+section.settings {
+  padding: 32px;
+  h1 {
+    font-size: 32px;
+    color: #8BDB38;
+    text-shadow: -3px 2px 2px rgba(160, 160, 160, 0.6);
+
+    img {
+      max-height: 32px;
+    }
+  }
+
+  p {
+    padding: 8px 0;
+  }
+
+  form {
+    margin: 16px 0;
+    padding: 16px;
+    border: 1px solid #555;
+    display: inline-block;
+    border-radius: 5px;
+    background: #152947;
+
+    h2, h3 {
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0 0 16px 0;
+      font-size: 1.3rem;
+    }
+
+    h3 {
+      margin: 24px 0 12px 0;
+      font-size: 1.1rem;
+    }
+
+    .row {
+      margin: 8px 0;
+
+      input, select {
+        width: 200px;
+      }
+
+      label {
+        width: 100px;
+        display: inline-block;
+      }
+
+      &.error {
+        color: #DB5757;
+      }
+
+      button {
+        background: #22C822;
+        border: 1px solid #8D8D8D;
+        padding: 8px 32px;
+        margin-top: 24px;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.05rem;
+      }
+    }
+  }
+
+  .copyright, .copyright * {
+    font-size: 0.7rem;
+  }
+}

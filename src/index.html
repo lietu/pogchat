@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PogChat - Flash free Twitch chat</title>
+    <meta name="description"
+          content="Twitch chat requires Flash, PogChat doesn't. Check out the Twitch chat of any channel on pretty much any device. Has some nice extra options too.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+</head>
+<body>
+<section class="loading visible">
+    Loading... <i class="fa fa-circle-o-notch fa-spin"></i>
+</section>
+<section class="settings">
+    <h1>PogChat <img src="http://static-cdn.jtvnw.net/emoticons/v1/88/2.0">
+    </h1>
+
+    <p>This is a simple tool to allow you to
+        <em>view</em> a Twitch chat without Flash.</p>
+
+    <p>The purpose of this tool is to give streamers the ability to put the Twitch chat on any and all tablet, phone, Raspberry Pi, etc. and other devices that may not support Flash.</p>
+
+    <p>You will
+        <em>NOT</em> be able to actively participate in the chat, and there is no way to moderate.
+    </p>
+
+    <p>That said, if you're interested, fill in the channel name (and fiddle with the extra settings if you feel like it) below and go wild.</p>
+
+    <p>Copying the URL after that will bring you to the same chat without having to re-enter things here.</p>
+
+    <p>Settings are also automatically saved as the global defaults when starting the chat using local storage (similar to cookies).</p>
+
+    <form class="settings">
+        <h2>Chat options</h2>
+
+        <div class="row error" rv-if="error">
+            <p>You might want to fill in the channel name first.</p>
+        </div>
+        <div class="row">
+            <label for="channel">Channel</label>
+            <input id="channel" type="text" rv-value="channel"/>
+        </div>
+
+        <h3>Extra settings</h3>
+
+        <div class="row">
+            <label for="timestamps">Timestamps</label>
+            <select id="timestamps" rv-value="timestamps">
+                <option value="none">None</option>
+                <option value="12h">12-hour</option>
+                <option value="24h">24-hour</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label for="fontsize">Font size</label>
+            <select id="fontsize" rv-value="fontSize">
+                <option value="12px">12px</option>
+                <option value="14px">14px</option>
+                <option value="16px">16px</option>
+                <option value="18px">18px</option>
+                <option value="22px">22px</option>
+                <option value="28px">28px</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <button type="submit">Engage</button>
+        </div>
+
+    </form>
+
+    <div class="copyright">
+        <p>This was made by <a
+                href="http://lietu.tv">Lietu</a>. The source code is available on GitHub at
+            <a href="https://github.com/lietu/pogchat">github.com/lietu/pogchat</a>.
+        </p>
+
+        <p>Uses APIs provided by <a href="http://nightdev.com">NightDev</a>.
+        </p>
+
+        <p>PogChat is NOT affiliated with Twitch or NightDev, and is provided "as is" and without warranties of any kind. The PogChamp emoticon is owned by Twitch.</p>
+
+        <p>This website, like many others, collects usage information via Google Analytics.</p>
+
+        <p>
+            Copyright &copy; 2016-infinity Janne "Lietu" Enberg.
+        </p>
+    </div>
+</section>
+<section class="chat">
+    <div class="top">
+        <div class="back">
+            <i class="fa fa-chevron-left"></i>
+            Back to settings
+        </div>
+    </div>
+    <div class="lines">
+        <div rv-each-msg="messages" rv-class="msg.cssClass">
+            <span rv-if="showTimestamps"
+                  class="timestamp">{msg.timestamp}</span>
+            <span class="name" rv-style="msg.nickStyle">{msg.nick}</span>:
+            <span class="message" rv-html="msg.message"></span>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script type="text/javascript" src="vendor/rivets.bundled.min.js"></script>
+<script type="text/javascript" src="script.js" async="async"></script>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-27007508-3', 'auto');
+    ga('send', 'pageview');
+</script>
+
+</body>
+</html>
