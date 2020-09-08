@@ -4,7 +4,7 @@ The purpose of this tool is to give streamers the ability to put the Twitch chat
 
 You will NOT be able to actively participate in the chat, and there is no way to moderate.
 
-[PogChat website](http://pogchat.com)
+This is not related to [pogchat.com](http://pogchat.com).
 
 
 ## Development
